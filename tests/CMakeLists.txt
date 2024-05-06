@@ -37,6 +37,10 @@ if (TARGET libintx.cuda)
   target_link_libraries(libintx.cuda.benchmarks libintx.cuda.md.eri4)
   target_link_libraries(libintx.cuda.benchmarks ${libintx_test_reference})
 
+  add_executable(libintx.cuda.benchmarks.fpl24 EXCLUDE_FROM_ALL libintx.cuda.benchmarks.fpl24.cc)
+  target_link_libraries(libintx.cuda.benchmarks.fpl24 libintx.cuda.md.eri4)
+  target_link_libraries(libintx.cuda.benchmarks.fpl24 ${libintx_test_reference})
+
   add_executable(libintx.cuda.md.test EXCLUDE_FROM_ALL libintx.cuda.md.test.cu)
   target_link_libraries(libintx.cuda.md.test libintx.cuda.md.eri4)
   target_link_libraries(libintx.cuda.md.test ${libintx_test_reference})

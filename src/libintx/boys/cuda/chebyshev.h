@@ -1,6 +1,8 @@
 #ifndef BOYS_CUDA_CHEBYSHEV_H
 #define BOYS_CUDA_CHEBYSHEV_H
 
+#include <cassert>
+
 #include "libintx/boys/boys.h"
 #include "libintx/boys/asymptotic.h"
 
