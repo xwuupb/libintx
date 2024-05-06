@@ -25,8 +25,8 @@ double reference(int N, Args ... args) {
 
 auto eri4_test_case(int A, int B, int C, int D, std::vector< std::array<int,2> > Ks = { {1,1} }, int N = 0) {
   // make a large batch of ERIs for performance measurement
-  int nab = int(200.0/(A*B+0.1));
-  int ncd = 32*200;
+  int nab = int(200.0/(A*B+0.2));
+  int ncd = 32*50;
   if (!N) N = nab*ncd;
 
   Basis<Gaussian> basis;
@@ -120,7 +120,7 @@ auto eri4_test_power(int A, int B, int C, int D, std::vector< std::array<int,2> 
     md.engine->compute(ab, cd, buffer.data());
     libintx::cuda::stream::synchronize(stream);
     { // many repeats for reliable power measurements
-      constexpr int num_repeats = 1 << 16;
+      constexpr int num_repeats = 1 << 15;
       auto t0 = time::now();
       for (int i = 0; i < num_repeats; i++) {
         md.engine->compute(ab, cd, buffer.data());
